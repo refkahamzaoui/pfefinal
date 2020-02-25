@@ -13,6 +13,8 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanIntegrationComponent } from 'src/app/pages/plan-integration/plan-integration.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -25,6 +27,7 @@ import { PlanIntegrationComponent } from 'src/app/pages/plan-integration/plan-in
     HttpClientModule,
     NgbModule,
     ClipboardModule,
+    GridModule
   ],
   declarations: [
     DashboardComponent,

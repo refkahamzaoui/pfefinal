@@ -7,12 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule
+    FormsModule,
     // NgbModule
+    GridModule
   ],
   declarations: [
     LoginComponent,

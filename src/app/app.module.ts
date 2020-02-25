@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { FormAddComponent } from './pages/form-add/form-add.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 
 
 
@@ -24,7 +26,8 @@ import { FormAddComponent } from './pages/form-add/form-add.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GridModule
   ],
   declarations: [
     AppComponent,
