@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { FormAddComponent } from './pages/form-add/form-add.component';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { ComponentsModule } from './components/components.module';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+    FormAddComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
