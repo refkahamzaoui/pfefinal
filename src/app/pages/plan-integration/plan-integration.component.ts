@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { GridModule, PDFModule, ExcelModule, DataBindingDirective } from '@progress/kendo-angular-grid';
+import { process } from '@progress/kendo-data-query';
+import {plan} from '././'
 @Component({
   selector: 'app-plan-integration',
   templateUrl: './plan-integration.component.html',
   styleUrls: ['./plan-integration.component.scss']
 })
 export class PlanIntegrationComponent implements OnInit {
-
  
+
+  public mySelection: string[] = [];
 
 
   ngOnInit() {
+
   }
   
     closeResult: string;
@@ -34,6 +39,13 @@ export class PlanIntegrationComponent implements OnInit {
         return  `with: ${reason}`;
       }
     }
+   
+
+ 
+
+ 
+
+
   
 
 }
