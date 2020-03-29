@@ -1,0 +1,159 @@
+<div class="header bg-default pb-8 pt-5 pt-md-8" color>
+  <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row">
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0" >Integration <br>Plan</h5>
+                    <span class="h2 font-weight-bold mb-0">5</span>
+                    
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                      <i class="fas fa-chart-bar"></i>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Signing <br>Plan</h5>
+                    <span class="h2 font-weight-bold mb-0">2</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                      <i class="fas fa-chart-pie"></i>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Evaluation Training</h5>
+                    <span class="h2 font-weight-bold mb-0">9</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                      <i class="fas fa-users"></i>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Evaluation Recrutement</h5>
+                    <span class="h2 font-weight-bold mb-0">4</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                      <i class="fas fa-percent"></i>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container-fluid mt--7">
+ 
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0" style="background-color:rgb(235, 235, 243)">
+            <span class="text-warning font-weight-900" style="font-size: 160%">Profile templates</span>                             
+
+            <div class="col-xl-12 order-xl-12 mt-4 mb-xl-4 mt--0 " >
+              <div class="card card-profile shadow">
+                <div class="card-header text-center border-2 pt-8 pt-md-4 pb-6 pb-md-4">
+               
+                  <div class=" row float-right">
+                   
+                    <input class="form-control form-control-sm ml-0 w-6 " [(ngModel)]="searchText" placeholder="Search">
+                  
+                  </div>
+                </div>
+  <div class="row">
+    <div class="col-xl-3 col-lg-9" *ngFor="let plan of tasks | filter : searchText" style="margin-left:40px">
+      <br>
+      <div class="card card-stats mb-4 mb-xl-2 border-warning mb-3"  >
+        <div class="card-body text-warning" >
+          <div class="row" >
+            <div class="col"  (click)="editUser(plan)">
+              <span class="text-warning font-weight-900">{{plan.title}}</span>              
+              <div class="row">
+              <h4 class="card-title text-uppercase text-muted mb-0" >{{plan.description}}</h4>
+            </div>
+            </div>
+            
+          </div>
+         
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-xl-3 col-lg-8"  style="margin-left:40px">
+      <br>
+      <div class="card card-stats mb-6 mb-xl-6 border-warning mb-8">
+        
+
+        <div class="card-body" >
+          <div class="row">
+            <div class="col" >
+              <span class="text-warning font-weight-900">Add new task</span>              
+              
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                <i class="fas fa-plus-circle fa-1x fa-align-center" style="text-align:center" routerLinkActive="active" [routerLink]="['/task-create']"></i>              </div>
+            </div>
+          </div>
+         
+        </div>
+       
+
+         
+        </div>
+      </div>
+    </div>
+    
+  </div>
+     </div></div></div></div></div></div>
+      
+       
+        
+    
+
+  <!-- Dark table -->
+  
+  
+
+
+
+  

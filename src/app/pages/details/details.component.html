@@ -1,0 +1,170 @@
+<div class="header bg-default pb-8 pt-5 pt-md-8" color>
+    <div class="container-fluid">
+        <div class="header-body">
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0" >Integration Plan</h5>
+                      <span class="h2 font-weight-bold mb-0">5</span>
+                      
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <i class="fas fa-chart-bar"></i>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Signing <br>Plan</h5>
+                      <span class="h2 font-weight-bold mb-0">2</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <i class="fas fa-chart-pie"></i>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Evaluation Training</h5>
+                      <span class="h2 font-weight-bold mb-0">9</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                        <i class="fas fa-users"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Evaluation Recrutement</h5>
+                      <span class="h2 font-weight-bold mb-0">4</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                        <i class="fas fa-percent"></i>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="container-fluid mt--7" >
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0" style="background-color:rgb(235, 235, 243)">
+            <span class="text-warning font-weight-900" style="font-size: 160%">Details</span>                             
+
+            <div class="col-xl-12 order-xl-12 mt-4 mb-xl-4 mt--0 " >
+                <div class="card card-profile shadow">
+                  
+                  <div class="card-header text-center border-4 pt-8 pt-md-4 pb-6 pb-md-4">
+                    <div class="row float-right">
+                   
+                      <a href="javascript:void(0)" class="btn  btn-danger float-right"   ><i class="fa fa-trash" aria-hidden="true"></i>   Delete</a>
+                    
+                   
+                      <a href="javascript:void(0)" class="btn  btn-default float-right" (click)="enableFormGroup()" ><i class="fa fa-edit"></i>  Edit</a>
+                    </div>
+                   
+                  </div>
+                  <div class="card-body pt-5 pt-md-4">
+                    <div class="row">
+                      <div class="col">
+                        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                          <div class="form-group">
+                            <span class="text-warning font-weight-900">title</span>                             
+                            <input type="title" formControlName="title" placeholder="title" name="title" class="form-control" id="title"  />
+                          
+                          </div>
+                        
+                          
+                        
+                      
+                   
+                     
+                     
+                     
+                      <hr class="my-4" />
+
+                      <div class="form-group">
+                            <span class="text-warning font-weight-900">Description</span> 
+                             
+                            <angular-editor  formControlName="description" name="description" id="description" [config]="editorConfig" disabled></angular-editor>
+                          
+                           
+                        </div>   
+                          
+                      
+                    
+                     
+                     
+                     
+                        <hr class="my-4" />
+                        <span class="text-warning font-weight-900">Subtasks</span>
+                        <div class="row">
+                          <div class="col-xl-3 col-lg-9">
+                            <br>
+                            <div class="card card-stats mb-4 mb-xl-0 border-warning mb-3"  >
+                              <div class="card-body text-warning" >
+                                <div class="row" >
+                                  <div class="col">
+                                    <span class="text-warning font-weight-900">jjj</span>              
+                                    <div class="row">
+                                    <h4 class="card-title text-uppercase text-muted mb-0" >aaa</h4>
+                                  </div>
+                                  </div>
+                                  
+                                </div>
+                               
+                              </div>
+                            </div>
+                          </div>
+                         
+                          <div class="col-xl-3 col-lg-8">
+                            <br>
+                            
+                            </div>
+                          </div>
+                        <button class="btn  btn-danger float-right">Update</button>
+                             
+                      </form>
+
+                  </div>
+                </div>
+              </div>
+              </div></div></div></div></div></div>
+            </div>

@@ -1,4 +1,4 @@
-<div class="header bg-success pb-8 pt-5 pt-md-8" color>
+<div class="header bg-default pb-8 pt-5 pt-md-8" color>
     <div class="container-fluid">
         <div class="header-body">
           <!-- Card stats -->
@@ -8,8 +8,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Integration Plan</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0" >Integration Plan</h5>
                       <span class="h2 font-weight-bold mb-0">5</span>
+                      
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -85,7 +86,74 @@
     <div class="row">
       <div class="col">
         <div class="card shadow">
-        
+          <div class="card-header border-0">
+              
+            <h3 class="mb-0">Integration plan</h3>
+            <div class="text-right">
+              <div ngbDropdown placement="bottom-right">
+                  <a class="class="mb-6  ngbDropdownToggle>
+                      <button type="button" class="btn btn-default" placement="left"
+                      >
+                        +
+                      </button>                            </a>
+                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                    <ng-template #content let-modal><div class="modal-body">
+                      <form>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="form-control form-control-alternative" id="exampleFormControlInput1" placeholder="Originator">
+                            </div>
+                          </div>
+                  
+                        </div>
+                        <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="input-group input-group-alternative mb-4">
+                              <input class="form-control" placeholder="New hires name" type="text">
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <div class="input-group input-group-alternative mb-4">
+
+                                <input class="form-control form-control-alternative" placeholder="Approval" type="text">
+                              </div>
+                            </div>
+                          </div>
+                         
+                        </div>
+                        
+                          <div>
+                            <button type="button" class="float-right" placement="right"
+                            ngbPopover="This is a very beautiful popover, show some love.">
+                              Suivant
+                            </button>                                    
+                        </div>
+                        
+                      </form>
+                    </div>
+                    </ng-template>
+                    <button class="dropdown-item" (click)="openDialog() ">Add a blank plan</button>
+                    <a class="dropdown-item" href="javascript:void(0)">Copy From</a>
+                  </div>
+                </div>               
+              </div>
+            
+            <div>
+              <i class="fas fa-search" aria-hidden="true"></i>
+             
+              <input class="form-control form-control-sm ml-3 w-75" [(ngModel)]="searchText" placeholder="Search">
+             
+            </div>
+            
+         
+                    </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
@@ -96,34 +164,35 @@
                   <th scope="col">Due Date</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody *ngFor="let plan of planList | filter : searchText">
                 <tr>
                   <th scope="row">
                     <div class="media align-items-center">
                       <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
                         <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
                       </a>
-                      <div class="media-body">
-                        <span class="mb-0 text-sm">ahmed</span>
+                      <div class="media-body" >
+                        <span class="mb-0 text-sm">{{plan.name}}</span>
                       </div>
+                   
                     </div>
                   </th>
                   <td>
                     <div>
                         <i class="ni ni-calendar-grid-58"></i>
-                        <span>02/02/2020</span>
+                        <span>{{plan.recrutement}}</span>
                       </div>                 
                      </td>
                   <td>
                       
                       <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> pending
+                        <i class="bg-warning"></i> {{plan.status}}
                       </span> 
                   </td>
                   <td>
                     <div>
                         <i class="ni ni-calendar-grid-58"></i>
-                        <span>02/02/2020</span>
+                        <span>{{plan.due}}</span>
                       </div> 
                     <div class="d-flex align-items-center">
                       <span class="mr-2">60%</span>
@@ -140,313 +209,13 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </a>
                       <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                        <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                        <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                        <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                        <a class="dropdown-item" href="javascript:void(0)">Show Details</a>
+                        <a class="dropdown-item" href="javascript:void(0)">Copy From</a>
                       </div>
                     </div>
                   </td>
                 </tr>
-                <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">Emna</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div>                 
-                       </td>
-                    <td>
-                        
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-warning"></i> pending
-                        </span> 
-                    </td>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>22/02/2020</span>
-                        </div> 
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">60%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">soumaya</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>22/02/2020</span>
-                        </div>                 
-                       </td>
-                    <td>
-                        
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-success"></i> completed
-                        </span> 
-                    </td>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/03/2020</span>
-                        </div> 
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">60%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">refka</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div>                 
-                       </td>
-                    <td>
-                        
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-warning"></i> pending
-                        </span> 
-                    </td>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div> 
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">100%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">haithem</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>01/02/2020</span>
-                        </div>                 
-                       </td>
-                    <td>
-                        
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-success"></i> completed
-                        </span> 
-                    </td>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div> 
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">60%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">Amira</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div>                 
-                       </td>
-                    <td>
-                        
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-success"></i> completed
-                        </span> 
-                    </td>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div> 
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">80%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80" style="width: 80%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">ahmed</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div>                 
-                       </td>
-                    <td>
-                        
-                        <span class="badge badge-dot mr-4">
-                          <i class="bg-warning"></i> pending
-                        </span> 
-                    </td>
-                    <td>
-                      <div>
-                          <i class="ni ni-calendar-grid-58"></i>
-                          <span>02/02/2020</span>
-                        </div> 
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">60%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div ngbDropdown placement="bottom-right">
-                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
+               
                 </tbody>
               
             </table>

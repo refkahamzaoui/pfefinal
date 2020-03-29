@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { FormAddComponent } from './pages/form-add/form-add.component';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -27,15 +28,24 @@ import { GridModule } from '@progress/kendo-angular-grid';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    GridModule
+    GridModule,
+        ToastrModule.forRoot(),
+        
+
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
     FormAddComponent,
+    
+   
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }
