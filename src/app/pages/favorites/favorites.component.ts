@@ -16,14 +16,13 @@ export interface Fruit {
   name: string;
   
 }
- 
-
 @Component({
-  selector: 'app-templates',
-  templateUrl: './templates.component.html',
-  styleUrls: ['./templates.component.scss']
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrls: ['./favorites.component.scss']
 })
-export class TemplatesComponent implements OnInit {
+export class FavoritesComponent implements OnInit {
+
   tags: Tags[] = [];
   test2;
   addForm: FormGroup;
@@ -183,15 +182,6 @@ toggle(plan) {
 }
 addfav(task:Task): any {
  
-  task.favoris=true
-
-
-
-  this.taskservice.updateTask(task.id, task).subscribe();
-  console.log(task.favoris)
-}
-addfav2(task:Task): any {
- 
   task.favoris=false
 
 
@@ -205,11 +195,6 @@ hi(){
     $(".heart").on("click", function() {
       $(this).toggleClass("is-active");
     });
-  });
-}
-fn(){
-  $(document).ready(function() {
-    $('#rateMe1').mdbRate();
   });
 }
 

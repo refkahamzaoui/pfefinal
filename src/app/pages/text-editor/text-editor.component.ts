@@ -88,9 +88,7 @@ constructor(
 
   onSubmit() {
     this.taskservice.createUser(this.addForm.value)
-      .subscribe( data => {
-        this.router.navigate(['task-create']);
-      });
+      
   }
   navigate(){
     this.router.navigate(['task-create']);

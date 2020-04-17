@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit {
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  public searchString: string;
+
   stat:string;
   planList:Plan[];
 serviceintegration:IntegrationPlanService;
@@ -94,5 +96,8 @@ errorMessage: string;
   openchat(){
     
   }
+  goToPlanIntegration(userId) {
+    this.router.navigate(['plan-integration/' + userId ]);
+  } 
 
 }

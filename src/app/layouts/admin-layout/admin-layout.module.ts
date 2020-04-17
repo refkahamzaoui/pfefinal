@@ -35,13 +35,20 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TemplatesComponent } from 'src/app/pages/templates/templates.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TextEditorComponent } from 'src/app/pages/text-editor/text-editor.component';
-
 import { TaskCreateComponent } from 'src/app/pages/task-create/task-create.component';
 import{MatCardModule
 } from "@angular/material/card";
 import{MatIconModule} from "@angular/material/icon";
 import { DetailsComponent } from 'src/app/pages/details/details.component';
-
+import {MatChipsModule} from '@angular/material/chips';
+import { NgxPopper } from 'angular-popper';
+import {MatSelectModule} from '@angular/material/select';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { MatButtonModule } from '@angular/material/button';
+import { WavesModule } from 'angular-bootstrap-md'
+import { EditTaskComponent } from 'src/app/pages/edit-task/edit-task.component';
+import { FavoritesComponent } from 'src/app/pages/favorites/favorites.component';
 
 
 @NgModule({
@@ -68,6 +75,12 @@ import { DetailsComponent } from 'src/app/pages/details/details.component';
     AngularEditorModule,
     MatCardModule,
     MatIconModule,
+    MatChipsModule,
+    NgxPopper,
+    MatSelectModule,
+ DragDropModule,
+ MatButtonModule,
+ WavesModule,
   ],
   declarations: [
     DashboardComponent,
@@ -82,6 +95,8 @@ import { DetailsComponent } from 'src/app/pages/details/details.component';
     TextEditorComponent,
  TaskCreateComponent,
  DetailsComponent,
+ EditTaskComponent,
+ FavoritesComponent,
 
 
 

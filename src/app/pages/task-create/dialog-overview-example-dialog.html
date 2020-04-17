@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>hi</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <div formGroupName="subtasks"
+    *ngFor="let skill of addForm.get('subtasks')['controls']; let i = index">
+    <div [formGroupName]="i">
+
+
+      <div class="form-group">
+        <!-- app.component.html -->
+        <label for="">Title</label>
+        <input type="text" formControlName="titlesub" placeholder="title" name="titlesub"
+          class="form-control" id="titlesub">
+        <!-- app.component.html -->
+      </div>
+
+      <div class="form-group">
+        <label for="">Description</label>
+
+        <angular-editor formControlName="descriptionsub" [config]="editorConfig"
+          id="descriptionsub"></angular-editor>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button [mat-dialog-close] cdkFocusInitial>Ok</button>
+</div>

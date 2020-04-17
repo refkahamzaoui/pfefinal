@@ -1,11 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TemplateserviceService } from 'src/app/services/templateservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, NgControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgControl, ReactiveFormsModule, FormControl, NgForm } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Task } from 'src/app/models/task';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ToastrService } from 'ngx-toastr';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-details',
@@ -13,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  errorMessage: string; 
+val;
   id = this.actRoute.snapshot.params['id'];
   taskData: any = {};
   productID: any;
@@ -20,27 +23,55 @@ export class DetailsComponent implements OnInit {
   editForm: FormGroup;
   public toggleButton: boolean = true;
   user: Task;
+  tasks:Task;
+  taskss:Task[];
+  isLinear = false;
   constructor(private taskservice:TemplateserviceService, public actRoute: ActivatedRoute,
-    public router: Router,private formBuilder: FormBuilder,private toastr: ToastrService) { }
+    public router: Router,private formBuilder: FormBuilder,private toastr: ToastrService) { 
+      
+    let self = this;  
+    self.taskservice.getPlns().subscribe(response => this.taskss = response,error => this.errorMessage = < any > error);  
+    }
 
   ngOnInit(): void {
+    
     let userId = localStorage.getItem("detailsId");
     if(!userId) {
       alert("Invalid action.")
       this.router.navigate(['list-user']);
       return;
     }
-    this.editForm = this.formBuilder.group({
-      id: [],
-      title: ['', Validators.required],
-      description: ['', Validators.required]
+    this.editForm =  new FormGroup({
+      
+       id:new FormControl(),
+        title: new FormControl(),
+        description: new FormControl(),
+        type:new FormControl(),
+      
+      subtasks: this.formBuilder.array([this.subtasks])
     });
+    
     this.taskservice.getUserById(+userId)
       .subscribe( data => {
-        this.editForm.setValue(data);
+        this.editForm.patchValue(data);
       });
       this.editForm.disable();
 
+  }
+  get subtasks(): FormGroup {
+    return this.formBuilder.group({
+      idsub: new FormControl(),
+      titlesub: new FormControl(),
+      descriptionsub: new FormControl(),
+    });
+  }
+  addSkillFormGroupe():FormGroup{
+    return this.formBuilder.group({
+      
+      titlesub: new FormControl(),
+      descriptionsub:new FormControl(),
+      
+    });
   }
   updateEmployee() {
     if(window.confirm('Are you sure, you want to update?')){
@@ -49,6 +80,7 @@ export class DetailsComponent implements OnInit {
       })
     }
   }
+  
   loadProductDetails(productID){
     this.taskservice.getProductDetails(productID).subscribe(product => {
       this.productData = product;
@@ -58,6 +90,7 @@ export class DetailsComponent implements OnInit {
     this.router.navigate([link]);
   }
   onSubmit() {
+    
     this.taskservice.updateUser(this.editForm.value)
       .pipe(first())
       .subscribe(
@@ -69,11 +102,14 @@ export class DetailsComponent implements OnInit {
         error => {
           alert(error);
         });
-  }
+
+
+}
+ 
   editorConfig: AngularEditorConfig = {
     editable: false,
       spellcheck: true,
-      height: '250px',
+      height: '100px',
       minHeight: '0',
       maxHeight: 'auto',
       width: 'auto',
@@ -117,6 +153,51 @@ export class DetailsComponent implements OnInit {
 };
 enableFormGroup() {
   this.editForm.enable();
+}
+delete(task:Task){
+  this.taskservice
+  .deleteHero(task.id)
+  .subscribe();
+  this.toastr.success('Task updated!', 'GREAT!');
+
+  this.router.navigate(['templates']);
+
+}
+
+movies = [
+  {
+    id:1,
+    title: 'orienté objet',
+    poster: 'to learn this '
+
+  },
+  {
+    id:2,
+    title: '. Learn Software Design',
+    poster: 'Software design and architecture '
+  },
+  {
+    id:3,
+    title: 'Learn Containers  ',
+    poster: 'knowledge of DevOps is essential'
+  },
+  {
+    id:4,
+    title: 'Learn Spring Framework',
+    poster: 'spring boot'
+  },
+  {
+    id:5,
+    title: 'Learn Unit Testing',
+    poster: 'JUnit and Mockito'
+  },
+  
+ 
+];
+// tslint:enable:max-line-length
+
+drop(event: CdkDragDrop<{title: string, poster: string}[]>) {
+  moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
 }
 
 }

@@ -10,6 +10,8 @@ import { PlanFormComponent } from 'src/app/pages/plan-form/plan-form.component';
 import { TemplatesComponent } from 'src/app/pages/templates/templates.component';
 import { TaskCreateComponent } from 'src/app/pages/task-create/task-create.component';
 import { DetailsComponent } from 'src/app/pages/details/details.component';
+import { EditTaskComponent } from 'src/app/pages/edit-task/edit-task.component';
+import { FavoritesComponent } from 'src/app/pages/favorites/favorites.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -19,10 +21,16 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'plan-integration',           component: PlanIntegrationComponent},
     { path: 'task-create',           component: TaskCreateComponent},
+
     { path: 'plan-integration/:status', component: PlanIntegrationComponent },
     { path: 'plan-form', component: PlanFormComponent },
     { path: 'templates', component: TemplatesComponent },
-    { path: 'details', component: DetailsComponent }
+    { path: 'details', component: DetailsComponent },
+    { path: 'task-edit/:id', component: EditTaskComponent }  ,
+    { path: 'favorites', component: FavoritesComponent }  
+
+
+    
 
 
 ];

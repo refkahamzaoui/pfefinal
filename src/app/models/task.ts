@@ -1,16 +1,23 @@
 
 export interface subtasks {
-  idsub: number;
+  id:number;
+
   titlesub: string;
-  descriptionsub: string[];
+  descriptionsub: string;
+  
+}
+export interface Tags {
+  tag:string;
   
 }
 export class Task { 
-
-
     id:number;
     title:string;    
     description:string;  
-   // subtasks:subtasks[];
-   
+    categorie:string;
+    type:string;
+    subtasks:subtasks[];
+    tags:Tags[];
+    favoris:boolean;
+   privacy:string;
   }
